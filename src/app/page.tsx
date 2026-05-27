@@ -27,12 +27,24 @@
         <p style={{ fontSize: "1.1rem", color: "#57534e", maxWidth: 560, marginBottom: "2rem", lineHeight: 1.65 }}>
           Factures, contrats, formulaires — DocExtract les analyse, les comprend et les livre en JSON propre, prêt à brancher sur votre ERP ou CRM.
         </p>
-        <a
-          href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
-          style={{ display: "inline-block", background: "#92400e", color: "#fef3c7", padding: "0.8rem 2rem", borderRadius: 8, fontWeight: 700, fontSize: "1rem", textDecoration: "none" }}
-        >
-          Tester gratuitement →
-        </a>
+        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+          <a
+            href="https://calendly.com/wikolabs"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "inline-block", background: "#92400e", color: "#fef3c7", padding: "0.8rem 2rem", borderRadius: 8, fontWeight: 700, fontSize: "1rem", textDecoration: "none" }}
+          >
+            📅 Réserver un créneau →
+          </a>
+          <a
+            href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20DocExtract%20avec%20Wikolabs."
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "inline-block", background: "#25d366", color: "#fff", padding: "0.8rem 2rem", borderRadius: 8, fontWeight: 700, fontSize: "1rem", textDecoration: "none" }}
+          >
+            💬 WhatsApp →
+          </a>
+        </div>
       </section>
 
       {/* Document → JSON Demo */}
@@ -106,12 +118,24 @@
           Prêt à automatiser votre traitement documentaire ?
         </h2>
         <p style={{ color: "#fde68a", marginBottom: "2rem", fontSize: "1rem" }}>Branchez DocExtract en moins d'une journée. Résultats visibles dès le premier document.</p>
-        <a
-          href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
-          style={{ display: "inline-block", background: "#fef3c7", color: "#92400e", padding: "0.9rem 2.5rem", borderRadius: 8, fontWeight: 700, fontSize: "1.05rem", textDecoration: "none" }}
-        >
-          Demander une démo gratuite
-        </a>
+        <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+          <a
+            href="https://calendly.com/wikolabs"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "inline-block", background: "#fef3c7", color: "#92400e", padding: "0.9rem 2.5rem", borderRadius: 8, fontWeight: 700, fontSize: "1.05rem", textDecoration: "none" }}
+          >
+            📅 Réserver un créneau →
+          </a>
+          <a
+            href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20DocExtract%20avec%20Wikolabs."
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "inline-block", background: "#25d366", color: "#fff", padding: "0.9rem 2.5rem", borderRadius: 8, fontWeight: 700, fontSize: "1.05rem", textDecoration: "none" }}
+          >
+            💬 WhatsApp →
+          </a>
+        </div>
       </section>
 
       {/* Footer */}
