@@ -1,4 +1,4 @@
-export default function DocExtractPage() {
+﻿export default function DocExtractPage() {
   return (
     <main style={{ fontFamily: "var(--font-body)", color: "#1c1917" }}>
       {/* Nav */}
@@ -8,7 +8,7 @@ export default function DocExtractPage() {
             DocExtract
           </span>
           <a
-            href="mailto:hello@wikolabs.com?subject=DocExtract — Demande de démo"
+            href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
             style={{ background: "#fef3c7", color: "#92400e", padding: "0.45rem 1.2rem", borderRadius: 6, fontWeight: 600, fontSize: "0.875rem", textDecoration: "none" }}
           >
             Demander une démo
@@ -28,7 +28,7 @@ export default function DocExtractPage() {
           Factures, contrats, formulaires — DocExtract les analyse, les comprend et les livre en JSON propre, prêt à brancher sur votre ERP ou CRM.
         </p>
         <a
-          href="mailto:hello@wikolabs.com?subject=DocExtract — Demande de démo"
+          href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
           style={{ display: "inline-block", background: "#92400e", color: "#fef3c7", padding: "0.8rem 2rem", borderRadius: 8, fontWeight: 700, fontSize: "1rem", textDecoration: "none" }}
         >
           Tester gratuitement →
@@ -107,7 +107,7 @@ export default function DocExtractPage() {
         </h2>
         <p style={{ color: "#fde68a", marginBottom: "2rem", fontSize: "1rem" }}>Branchez DocExtract en moins d'une journée. Résultats visibles dès le premier document.</p>
         <a
-          href="mailto:hello@wikolabs.com?subject=DocExtract — Demande de démo"
+          href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
           style={{ display: "inline-block", background: "#fef3c7", color: "#92400e", padding: "0.9rem 2.5rem", borderRadius: 8, fontWeight: 700, fontSize: "1.05rem", textDecoration: "none" }}
         >
           Demander une démo gratuite
