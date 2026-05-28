@@ -146,7 +146,7 @@
           <span style={{ color: "#fde68a" }}>·</span>
           <a href="tel:+261386626100" style={{ textDecoration: "none", color: "#fde68a" }}>+261 38 66 261 00</a>
           <span style={{ color: "#fde68a" }}>·</span>
-          <a href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "#fde68a" }}>Prendre RDV</a>
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "#fde68a" }}>Prendre RDV</button>
         </div>
       </footer>
     </main>
