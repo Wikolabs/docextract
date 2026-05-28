@@ -141,6 +141,13 @@
       {/* Footer */}
       <footer style={{ background: "#78350f", padding: "1.25rem 2rem", textAlign: "center" }}>
         <p style={{ color: "#fde68a", fontSize: "0.8rem", margin: 0 }}>© 2025 DocExtract — Un produit Wikolabs</p>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem", marginTop: "0.5rem", fontSize: "0.8rem" }}>
+          <a href="mailto:team@wikolabs.com" style={{ textDecoration: "none", color: "#fde68a" }}>team@wikolabs.com</a>
+          <span style={{ color: "#fde68a" }}>·</span>
+          <a href="tel:+261386626100" style={{ textDecoration: "none", color: "#fde68a" }}>+261 38 66 261 00</a>
+          <span style={{ color: "#fde68a" }}>·</span>
+          <a href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "#fde68a" }}>Prendre RDV</a>
+        </div>
       </footer>
     </main>
   );
