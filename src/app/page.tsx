@@ -7,12 +7,10 @@
           <span style={{ fontFamily: "var(--font-display)", color: "#fef3c7", fontSize: "1.25rem", fontWeight: 700, letterSpacing: "0.02em" }}>
             DocExtract
           </span>
-          <a
-            href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
-            style={{ background: "#fef3c7", color: "#92400e", padding: "0.45rem 1.2rem", borderRadius: 6, fontWeight: 600, fontSize: "0.875rem", textDecoration: "none" }}
-          >
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
+            style={{ background: "#fef3c7", color: "#92400e", padding: "0.45rem 1.2rem", borderRadius: 6, fontWeight: 600, fontSize: "0.875rem", textDecoration: "none" }}>
             Demander une démo
-          </a>
+          </button>
         </div>
       </nav>
 
@@ -28,14 +26,10 @@
           Factures, contrats, formulaires — DocExtract les analyse, les comprend et les livre en JSON propre, prêt à brancher sur votre ERP ou CRM.
         </p>
         <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-          <a
-            href="https://calendly.com/wikolabs"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "inline-block", background: "#92400e", color: "#fef3c7", padding: "0.8rem 2rem", borderRadius: 8, fontWeight: 700, fontSize: "1rem", textDecoration: "none" }}
-          >
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
+            style={{ display: "inline-block", background: "#92400e", color: "#fef3c7", padding: "0.8rem 2rem", borderRadius: 8, fontWeight: 700, fontSize: "1rem", textDecoration: "none" }}>
             📅 Réserver un créneau →
-          </a>
+          </button>
           <a
             href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20DocExtract%20avec%20Wikolabs."
             target="_blank"
@@ -119,14 +113,10 @@
         </h2>
         <p style={{ color: "#fde68a", marginBottom: "2rem", fontSize: "1rem" }}>Branchez DocExtract en moins d'une journée. Résultats visibles dès le premier document.</p>
         <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-          <a
-            href="https://calendly.com/wikolabs"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "inline-block", background: "#fef3c7", color: "#92400e", padding: "0.9rem 2.5rem", borderRadius: 8, fontWeight: 700, fontSize: "1.05rem", textDecoration: "none" }}
-          >
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
+            style={{ display: "inline-block", background: "#fef3c7", color: "#92400e", padding: "0.9rem 2.5rem", borderRadius: 8, fontWeight: 700, fontSize: "1.05rem", textDecoration: "none" }}>
             📅 Réserver un créneau →
-          </a>
+          </button>
           <a
             href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20DocExtract%20avec%20Wikolabs."
             target="_blank"
