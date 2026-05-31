@@ -15,21 +15,9 @@ services:
       GROQ_API_KEY: ${GROQ_API_KEY:-}
       GEMINI_API_KEY: ${GEMINI_API_KEY:-}
     networks:
-      - docextract-net
-
-  docextract:
-    image: ghcr.io/wikolabs/docextract:latest
-    container_name: docextract
-    restart: unless-stopped
-    ports:
-      - "3020:3000"
-    environment:
-      BACKEND_URL: "http://docextract-backend:8000"
-    depends_on:
-      - docextract-backend
-    networks:
-      - docextract-net
-
+  wkdemo_net:
+    name: wkdemo-net
+    external: true
 networks:
   docextract-net:
     name: docextract-net
