@@ -1,144 +1,231 @@
-﻿export default function DocExtractPage() {
+﻿"use client";
+
+const P = {
+  name: "DocExtract",
+  tagLabel: "OCR intelligent · Extraction IA · JSON structure",
+  taglines: ["Vos documents entrent.", "Des donnees propres sortent.", "En 5 secondes."],
+  taglineAccentIdx: 1,
+  desc: "DocExtract analyse vos factures, contrats et formulaires avec un LLM qui comprend le contexte — et livre chaque champ en JSON structure, pret a brancher sur votre ERP ou CRM.",
+  accent: "#34D399",
+  accentDim: "rgba(52,211,153,0.1)",
+  accentBorder: "rgba(52,211,153,0.25)",
+  accentGlow: "rgba(52,211,153,0.12)",
+  waText: "DocExtract",
+  navLinks: [
+    { label: "Fonctionnalites", href: "#features" },
+    { label: "Comment ca marche", href: "#process" },
+    { label: "Contact", href: "#cta" },
+  ],
+  metrics: [
+    { value: "5s", label: "par document" },
+    { value: "99%", label: "precision extraction" },
+    { value: "0", label: "template a configurer" },
+    { value: "100%", label: "valide avant livraison" },
+  ],
+  features: [
+    { icon: "📄", title: "OCR multiformat", desc: "PDF, PNG, JPEG, TIFF, scan papier — DocExtract lit tout, meme les documents abimes, inclines ou en basse resolution." },
+    { icon: "🧠", title: "Extraction par LLM", desc: "Un modele de langage comprend le contexte du document et extrait les bons champs sans template a configurer — factures, contrats, bons de commande." },
+    { icon: "✅", title: "Validation automatique", desc: "Regles metier integrees : montants, SIRET, IBAN, TVA, dates — chaque champ extrait est verifie avant livraison. Zero erreur silencieuse." },
+  ],
+  steps: [
+    { num: "01", title: "Envoyez le document", desc: "Glissez votre fichier dans l'interface ou appelez l'API REST. DocExtract accepte les envois unitaires et les lots de milliers de documents." },
+    { num: "02", title: "L'IA analyse et extrait", desc: "Le moteur OCR lit le document, le LLM identifie et extrait chaque champ avec son niveau de confiance. Traitement en moins de 5 secondes." },
+    { num: "03", title: "Recevez le JSON valide", desc: "Les donnees structurees arrivent dans votre webhook ou S3. Chaque champ est accompagne d'un score de confiance et d'un flag de validation." },
+  ],
+  testimonials: [
+    { quote: "On traitait 800 factures par mois a la main. DocExtract les traite en moins d'une heure, avec 99% de precision. Le gain de temps est immense.", author: "Marie-Claire V.", role: "DAF, Groupe de distribution" },
+    { quote: "L'integration dans notre ERP a pris une demi-journee. Aujourd'hui les factures arrivent, elles sont traitees automatiquement et archivees. Zero saisie manuelle.", author: "Julien A.", role: "Responsable Comptable, PME industrie" },
+  ],
+  ctaTitle: "Automatisez votre traitement documentaire",
+  ctaDesc: "Premiers documents traites en moins d'une heure. Integration API ou webhook en une journee. Aucune carte bancaire.",
+  ctaPrimary: "Reserver un creneau",
+  footerTagline: "Extraction documentaire IA et OCR intelligent pour entreprises",
+};
+
+export default function Page() {
+  const bg = "#04080F";
+  const bg2 = "#070D1B";
+  const card = "rgba(255,255,255,0.04)";
+  const border = "rgba(255,255,255,0.09)";
+  const gold = "#D4AF37";
+  const goldDim = "rgba(212,175,55,0.1)";
+  const goldBorder = "rgba(212,175,55,0.28)";
+  const txt1 = "#F0EDE6";
+  const txt2 = "#8B9DB5";
+  const txt3 = "#3C5068";
+  const { accent, accentDim, accentBorder, accentGlow } = P;
+
   return (
-    <main style={{ fontFamily: "var(--font-body)", color: "#1c1917" }}>
-      {/* Nav */}
-      <nav style={{ background: "#92400e", padding: "0 2rem" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 60 }}>
-          <span style={{ fontFamily: "var(--font-display)", color: "#fef3c7", fontSize: "1.25rem", fontWeight: 700, letterSpacing: "0.02em" }}>
-            DocExtract
-          </span>
-          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
-            style={{ background: "#fef3c7", color: "#92400e", padding: "0.45rem 1.2rem", borderRadius: 6, fontWeight: 600, fontSize: "0.875rem", textDecoration: "none" }}>
-            Demander une démo
+    <div style={{ minHeight: "100vh", background: bg, color: txt1 }}>
+      <style>{`
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes pulseDot { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.4; transform:scale(1.6); } }
+        .wk-card { transition: background .3s, border-color .3s, transform .35s cubic-bezier(.34,1.2,.64,1); }
+        .wk-card:hover { background: rgba(255,255,255,0.07) !important; border-color: ${accentBorder} !important; transform: translateY(-6px) !important; }
+        .wk-btn { transition: opacity .2s, transform .2s, box-shadow .2s; }
+        .wk-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 12px 32px rgba(212,175,55,.18); }
+        .wk-wa { transition: opacity .2s, transform .2s; }
+        .wk-wa:hover { opacity:.9; transform:translateY(-2px); }
+        .wk-nav-link { color: #8B9DB5; text-decoration:none; font-size:14px; font-weight:500; transition:color .2s; }
+        .wk-nav-link:hover { color: #F0EDE6; }
+        @media(max-width:640px){ .wk-hide-sm{ display:none!important; } .wk-hero-title{ font-size:2.4rem!important; } }
+      `}</style>
+
+      {/* NAVBAR */}
+      <nav style={{ position:"sticky", top:0, zIndex:100, background:"rgba(4,8,15,0.82)", backdropFilter:"blur(20px)", borderBottom:`1px solid ${border}`, padding:"0 40px", height:60, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
+        <span style={{ fontSize:18, fontWeight:800, letterSpacing:"-0.5px", color:txt1 }}>
+          {P.name}<span style={{ color:gold }}>.</span>
+        </span>
+        <div style={{ display:"flex", gap:28, alignItems:"center" }}>
+          <div className="wk-hide-sm" style={{ display:"flex", gap:24 }}>
+            {P.navLinks.map(l => <a key={l.label} href={l.href} className="wk-nav-link">{l.label}</a>)}
+          </div>
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' className="wk-btn"
+            style={{ background:gold, color:"#04080F", border:"none", borderRadius:8, padding:"8px 18px", fontWeight:700, fontSize:13.5, cursor:"pointer", fontFamily:"inherit" }}>
+            Reserver &rarr;
           </button>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section style={{ maxWidth: 1100, margin: "0 auto", padding: "4rem 2rem 3rem" }}>
-        <div style={{ display: "inline-block", background: "#fde68a", color: "#92400e", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.08em", padding: "0.25rem 0.75rem", borderRadius: 20, marginBottom: "1rem", textTransform: "uppercase" }}>
-          OCR + Extraction structurée
+      {/* HERO */}
+      <section style={{ padding:"100px 40px 80px", maxWidth:1000, margin:"0 auto", textAlign:"center", position:"relative" }}>
+        <div style={{ position:"absolute", top:-60, left:"50%", transform:"translateX(-50%)", width:700, height:600, background:`radial-gradient(ellipse at 50% 30%, ${accentGlow} 0%, transparent 60%)`, pointerEvents:"none" }} />
+        <div style={{ display:"inline-flex", alignItems:"center", gap:8, marginBottom:24, background:accentDim, border:`1px solid ${accentBorder}`, borderRadius:100, padding:"6px 18px", animation:"fadeUp .5s ease both" }}>
+          <span style={{ width:7, height:7, borderRadius:"50%", background:accent, display:"inline-block", animation:"pulseDot 2s ease-in-out infinite" }} />
+          <span style={{ color:accent, fontSize:11.5, fontWeight:700, letterSpacing:"2px", textTransform:"uppercase" }}>{P.tagLabel}</span>
         </div>
-        <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3.25rem)", lineHeight: 1.2, maxWidth: 700, marginBottom: "1.25rem", color: "#78350f" }}>
-          Vos documents lisibles par vos systèmes en 5 secondes
+        <h1 className="wk-hero-title" style={{ fontSize:"clamp(2.6rem,6vw,5rem)", fontWeight:700, lineHeight:1.08, letterSpacing:"-0.03em", marginBottom:28, fontFamily:"'Instrument Serif',Georgia,serif", animation:"fadeUp .5s .08s ease both" }}>
+          {P.taglines.map((line, i) => (
+            <span key={i} style={{ display:"block", color:i===P.taglineAccentIdx?accent:txt1, fontStyle:i===P.taglineAccentIdx?"italic":"normal" }}>{line}</span>
+          ))}
         </h1>
-        <p style={{ fontSize: "1.1rem", color: "#57534e", maxWidth: 560, marginBottom: "2rem", lineHeight: 1.65 }}>
-          Factures, contrats, formulaires — DocExtract les analyse, les comprend et les livre en JSON propre, prêt à brancher sur votre ERP ou CRM.
-        </p>
-        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
-            style={{ display: "inline-block", background: "#92400e", color: "#fef3c7", padding: "0.8rem 2rem", borderRadius: 8, fontWeight: 700, fontSize: "1rem", textDecoration: "none" }}>
-            📅 Réserver un créneau →
+        <p style={{ fontSize:"1.1rem", color:txt2, lineHeight:1.72, maxWidth:580, margin:"0 auto 48px", animation:"fadeUp .5s .16s ease both" }}>{P.desc}</p>
+        <div style={{ display:"flex", flexWrap:"wrap", justifyContent:"center", gap:14, marginBottom:44, animation:"fadeUp .5s .24s ease both" }}>
+          {P.metrics.map(m => (
+            <div key={m.label} style={{ background:card, border:`1px solid ${border}`, borderRadius:18, padding:"14px 22px", textAlign:"center", minWidth:118 }}>
+              <div style={{ fontSize:"1.7rem", fontWeight:800, color:txt1, letterSpacing:"-1.5px", lineHeight:1 }}>{m.value}</div>
+              <div style={{ fontSize:"0.62rem", color:txt3, textTransform:"uppercase", letterSpacing:"1.5px", marginTop:5 }}>{m.label}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ display:"flex", flexWrap:"wrap", gap:12, justifyContent:"center", animation:"fadeUp .5s .32s ease both" }}>
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' className="wk-btn"
+            style={{ background:gold, color:"#04080F", border:"none", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, cursor:"pointer", display:"flex", alignItems:"center", gap:8, fontFamily:"inherit" }}>
+            &#128197; {P.ctaPrimary}
           </button>
-          <a
-            href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20DocExtract%20avec%20Wikolabs."
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "inline-block", background: "#25d366", color: "#fff", padding: "0.8rem 2rem", borderRadius: 8, fontWeight: 700, fontSize: "1rem", textDecoration: "none" }}
-          >
-            💬 WhatsApp →
+          <a href={`https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20${encodeURIComponent(P.waText)}%20avec%20Wikolabs.`}
+            target="_blank" rel="noopener noreferrer" className="wk-wa"
+            style={{ background:"#25d366", color:"#fff", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, textDecoration:"none", display:"flex", alignItems:"center", gap:8 }}>
+            &#128172; WhatsApp
           </a>
         </div>
       </section>
 
-      {/* Document → JSON Demo */}
-      <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 2rem 4rem" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: "1.5rem", alignItems: "center" }}>
-          {/* Invoice mockup */}
-          <div style={{ background: "#fff", border: "1px solid #e7e5e4", borderRadius: 12, padding: "1.5rem", boxShadow: "0 4px 20px rgba(146,64,14,0.08)" }}>
-            <div style={{ fontSize: "0.7rem", fontWeight: 700, color: "#a8a29e", textTransform: "uppercase", marginBottom: "0.75rem", letterSpacing: "0.1em" }}>Document source</div>
-            <div style={{ borderBottom: "2px solid #92400e", paddingBottom: "0.5rem", marginBottom: "0.75rem" }}>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "1rem", fontWeight: 700, color: "#78350f" }}>FACTURE N° 2024-0847</div>
-              <div style={{ fontSize: "0.75rem", color: "#78716c" }}>Eurotrans SARL — SIRET 812 345 678 00014</div>
+      {/* FEATURES */}
+      <section id="features" style={{ padding:"80px 40px", maxWidth:1100, margin:"0 auto" }}>
+        <div style={{ textAlign:"center", marginBottom:52 }}>
+          <p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:14 }}>Fonctionnalites</p>
+          <h2 style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)", fontWeight:700, color:txt1, letterSpacing:"-0.02em", fontFamily:"'Instrument Serif',Georgia,serif", lineHeight:1.15 }}>
+            Tout automatise, <em style={{ fontStyle:"italic", color:gold }}>rien a gerer</em>
+          </h2>
+        </div>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(300px,1fr))", gap:20 }}>
+          {P.features.map((f, i) => (
+            <div key={f.title} className="wk-card" style={{ background:card, border:`1px solid ${border}`, borderRadius:20, padding:"28px 28px 24px", position:"relative", overflow:"hidden" }}>
+              <div style={{ position:"absolute", top:0, left:0, right:0, height:2, background:`linear-gradient(90deg,transparent,${i===0?gold:accent},transparent)`, opacity:.6 }} />
+              <div style={{ fontSize:"2rem", marginBottom:16 }}>{f.icon}</div>
+              <h3 style={{ fontSize:"1.05rem", fontWeight:700, color:txt1, marginBottom:10 }}>{f.title}</h3>
+              <p style={{ fontSize:"0.88rem", color:txt2, lineHeight:1.7, margin:0 }}>{f.desc}</p>
             </div>
-            {[["Client", "SAS Movitex"], ["Date", "14/03/2024"], ["Échéance", "13/04/2024"]].map(([k, v]) => (
-              <div key={k} style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", padding: "0.2rem 0", borderBottom: "1px dashed #e7e5e4", color: "#57534e" }}>
-                <span>{k}</span><span style={{ fontWeight: 600 }}>{v}</span>
+          ))}
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section id="process" style={{ padding:"80px 40px", background:bg2 }}>
+        <div style={{ maxWidth:860, margin:"0 auto" }}>
+          <div style={{ textAlign:"center", marginBottom:48 }}>
+            <p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:14 }}>Comment ca marche</p>
+            <h2 style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)", fontWeight:700, color:txt1, letterSpacing:"-0.02em", fontFamily:"'Instrument Serif',Georgia,serif" }}>
+              Premiers resultats en <em style={{ fontStyle:"italic", color:accent }}>5 secondes</em>
+            </h2>
+          </div>
+          <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
+            {P.steps.map((s, i) => (
+              <div key={s.num} style={{ display:"flex", alignItems:"flex-start", gap:22, background:card, border:`1px solid ${border}`, borderRadius:18, padding:"22px 26px" }}>
+                <div style={{ flexShrink:0, width:46, height:46, background:i===0?goldDim:accentDim, border:`1px solid ${i===0?goldBorder:accentBorder}`, borderRadius:14, display:"flex", alignItems:"center", justifyContent:"center", color:i===0?gold:accent, fontWeight:800, fontSize:15 }}>
+                  {s.num}
+                </div>
+                <div>
+                  <h3 style={{ fontSize:"1rem", fontWeight:700, color:txt1, marginBottom:6, lineHeight:1.3 }}>{s.title}</h3>
+                  <p style={{ fontSize:"0.87rem", color:txt2, lineHeight:1.7, margin:0 }}>{s.desc}</p>
+                </div>
               </div>
             ))}
-            <div style={{ marginTop: "0.75rem", fontSize: "0.75rem", color: "#a8a29e" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700, color: "#78350f", marginTop: "0.5rem", fontSize: "0.85rem" }}>
-                <span>TOTAL TTC</span><span>4 872,00 €</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Arrow */}
-          <div style={{ textAlign: "center" }}>
-            <div style={{ background: "#92400e", color: "#fef3c7", borderRadius: "50%", width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", margin: "0 auto 0.5rem" }}>→</div>
-            <div style={{ fontSize: "0.7rem", color: "#92400e", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em" }}>5 sec</div>
-          </div>
-
-          {/* JSON output */}
-          <div style={{ background: "#1c1917", borderRadius: 12, padding: "1.5rem", fontFamily: "monospace", fontSize: "0.78rem", lineHeight: 1.7, boxShadow: "0 4px 20px rgba(146,64,14,0.12)" }}>
-            <div style={{ fontSize: "0.7rem", fontWeight: 700, color: "#78716c", textTransform: "uppercase", marginBottom: "0.75rem", letterSpacing: "0.1em", fontFamily: "var(--font-body)" }}>JSON extrait</div>
-            <span style={{ color: "#fde68a" }}>{"{"}</span><br />
-            <span style={{ color: "#a8a29e" }}>&nbsp;&nbsp;"vendor"</span><span style={{ color: "#e7e5e4" }}>: </span><span style={{ color: "#86efac" }}>"Eurotrans SARL"</span><span style={{ color: "#e7e5e4" }}>,</span><br />
-            <span style={{ color: "#a8a29e" }}>&nbsp;&nbsp;"invoice_no"</span><span style={{ color: "#e7e5e4" }}>: </span><span style={{ color: "#86efac" }}>"2024-0847"</span><span style={{ color: "#e7e5e4" }}>,</span><br />
-            <span style={{ color: "#a8a29e" }}>&nbsp;&nbsp;"date"</span><span style={{ color: "#e7e5e4" }}>: </span><span style={{ color: "#86efac" }}>"2024-03-14"</span><span style={{ color: "#e7e5e4" }}>,</span><br />
-            <span style={{ color: "#a8a29e" }}>&nbsp;&nbsp;"amount_ttc"</span><span style={{ color: "#e7e5e4" }}>: </span><span style={{ color: "#fdba74" }}>4872.00</span><span style={{ color: "#e7e5e4" }}>,</span><br />
-            <span style={{ color: "#a8a29e" }}>&nbsp;&nbsp;"currency"</span><span style={{ color: "#e7e5e4" }}>: </span><span style={{ color: "#86efac" }}>"EUR"</span><span style={{ color: "#e7e5e4" }}>,</span><br />
-            <span style={{ color: "#a8a29e" }}>&nbsp;&nbsp;"confidence"</span><span style={{ color: "#e7e5e4" }}>: </span><span style={{ color: "#fdba74" }}>0.99</span><br />
-            <span style={{ color: "#fde68a" }}>{"}"}</span>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section style={{ background: "#fff8e1", padding: "4rem 2rem" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "1.75rem", color: "#78350f", marginBottom: "2.5rem", textAlign: "center" }}>
-            Tout ce dont vous avez besoin
-          </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
-            {[
-              { icon: "📄", title: "OCR Multiformat", desc: "PDF, PNG, JPEG, TIFF, scan papier — DocExtract lit tout, même les documents abîmés ou en biais." },
-              { icon: "🧠", title: "Extraction LLM", desc: "Un modèle de langage comprend le contexte et extrait les bons champs, sans template à configurer." },
-              { icon: "✅", title: "Validation automatique", desc: "Règles métier intégrées : montants, SIRET, dates, TVA — chaque champ est vérifié avant livraison." },
-            ].map((f) => (
-              <div key={f.title} style={{ background: "#fff", border: "1px solid #fde68a", borderRadius: 10, padding: "1.5rem" }}>
-                <div style={{ fontSize: "1.75rem", marginBottom: "0.75rem" }}>{f.icon}</div>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.1rem", color: "#92400e", marginBottom: "0.5rem" }}>{f.title}</h3>
-                <p style={{ fontSize: "0.875rem", color: "#57534e", lineHeight: 1.6 }}>{f.desc}</p>
+      {/* TESTIMONIALS */}
+      <section style={{ padding:"80px 40px", maxWidth:900, margin:"0 auto" }}>
+        <div style={{ textAlign:"center", marginBottom:44 }}>
+          <p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:14 }}>Temoignages</p>
+          <h2 style={{ fontSize:"clamp(1.6rem,3vw,2.4rem)", fontWeight:700, color:txt1, fontFamily:"'Instrument Serif',Georgia,serif" }}>Ce qu&apos;en disent nos clients</h2>
+        </div>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))", gap:20 }}>
+          {P.testimonials.map((t, i) => (
+            <div key={i} style={{ background:card, border:`1px solid ${border}`, borderLeft:`3px solid ${i===0?gold:accent}`, borderRadius:20, padding:"26px 26px 22px" }}>
+              <p style={{ fontSize:"0.92rem", color:txt2, lineHeight:1.75, fontStyle:"italic", marginBottom:20 }}>&ldquo;{t.quote}&rdquo;</p>
+              <div style={{ display:"flex", alignItems:"center", gap:12 }}>
+                <div style={{ width:38, height:38, borderRadius:"50%", background:i===0?goldDim:accentDim, border:`1px solid ${i===0?goldBorder:accentBorder}`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:16 }}>&#128100;</div>
+                <div>
+                  <div style={{ fontSize:"0.9rem", fontWeight:700, color:txt1 }}>{t.author}</div>
+                  <div style={{ fontSize:"0.72rem", color:txt3 }}>{t.role}</div>
+                </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section style={{ background: "#92400e", padding: "4rem 2rem", textAlign: "center" }}>
-        <h2 style={{ fontFamily: "var(--font-display)", fontSize: "2rem", color: "#fef3c7", marginBottom: "1rem" }}>
-          Prêt à automatiser votre traitement documentaire ?
-        </h2>
-        <p style={{ color: "#fde68a", marginBottom: "2rem", fontSize: "1rem" }}>Branchez DocExtract en moins d'une journée. Résultats visibles dès le premier document.</p>
-        <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
-            style={{ display: "inline-block", background: "#fef3c7", color: "#92400e", padding: "0.9rem 2.5rem", borderRadius: 8, fontWeight: 700, fontSize: "1.05rem", textDecoration: "none" }}>
-            📅 Réserver un créneau →
-          </button>
-          <a
-            href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20DocExtract%20avec%20Wikolabs."
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "inline-block", background: "#25d366", color: "#fff", padding: "0.9rem 2.5rem", borderRadius: 8, fontWeight: 700, fontSize: "1.05rem", textDecoration: "none" }}
-          >
-            💬 WhatsApp →
-          </a>
+      <section id="cta" style={{ padding:"0 40px 100px", maxWidth:860, margin:"0 auto" }}>
+        <div style={{ background:card, border:`1px solid ${goldBorder}`, borderRadius:24, padding:"64px 48px", textAlign:"center", backgroundImage:`radial-gradient(ellipse at 50% 0%, ${goldDim} 0%, transparent 65%)` }}>
+          <p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:16 }}>Demarrer</p>
+          <h2 style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)", fontWeight:700, color:txt1, marginBottom:14, letterSpacing:"-0.02em", fontFamily:"'Instrument Serif',Georgia,serif" }}>{P.ctaTitle}</h2>
+          <p style={{ color:txt2, fontSize:"1rem", marginBottom:36, lineHeight:1.7 }}>{P.ctaDesc}</p>
+          <div style={{ display:"flex", flexWrap:"wrap", gap:12, justifyContent:"center" }}>
+            <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' className="wk-btn"
+              style={{ background:gold, color:"#04080F", border:"none", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, cursor:"pointer", display:"flex", alignItems:"center", gap:8, fontFamily:"inherit" }}>
+              &#128197; {P.ctaPrimary}
+            </button>
+            <a href={`https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20${encodeURIComponent(P.waText)}%20avec%20Wikolabs.`}
+              target="_blank" rel="noopener noreferrer" className="wk-wa"
+              style={{ background:"#25d366", color:"#fff", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, textDecoration:"none", display:"flex", alignItems:"center", gap:8 }}>
+              &#128172; WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer style={{ background: "#78350f", padding: "1.25rem 2rem", textAlign: "center" }}>
-        <p style={{ color: "#fde68a", fontSize: "0.8rem", margin: 0 }}>© 2025 DocExtract — Un produit Wikolabs</p>
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem", marginTop: "0.5rem", fontSize: "0.8rem" }}>
-          <a href="mailto:team@wikolabs.com" style={{ textDecoration: "none", color: "#fde68a" }}>team@wikolabs.com</a>
-          <span style={{ color: "#fde68a" }}>·</span>
-          <a href="tel:+261386626100" style={{ textDecoration: "none", color: "#fde68a" }}>+261 38 66 261 00</a>
-          <span style={{ color: "#fde68a" }}>·</span>
-          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "#fde68a" }}>Prendre RDV</button>
+      {/* FOOTER */}
+      <footer style={{ borderTop:`1px solid ${border}`, padding:"32px 40px" }}>
+        <div style={{ maxWidth:1200, margin:"0 auto", display:"flex", flexWrap:"wrap", justifyContent:"space-between", alignItems:"center", gap:16 }}>
+          <div>
+            <span style={{ fontWeight:800, fontSize:16, color:txt1 }}>{P.name}</span><span style={{ color:gold }}>.</span>
+            <span style={{ display:"block", fontSize:12, color:txt3, marginTop:3 }}>{P.footerTagline}</span>
+          </div>
+          <p style={{ fontSize:13, color:txt3 }}>&#169; 2026 {P.name} &mdash; Un produit <a href="https://wikolabs.com" style={{ color:txt2, textDecoration:"none" }}>Wikolabs</a></p>
+          <div style={{ display:"flex", flexWrap:"wrap", gap:16, fontSize:13, alignItems:"center" }}>
+            <a href="mailto:team@wikolabs.com" style={{ color:txt3, textDecoration:"none" }}>team@wikolabs.com</a>
+            <span style={{ color:txt3 }}>&#183;</span>
+            <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' style={{ background:"none", border:"none", color:txt3, fontSize:13, cursor:"pointer", fontFamily:"inherit", padding:0 }}>Prendre RDV</button>
+          </div>
         </div>
       </footer>
-    </main>
+    </div>
   );
 }
