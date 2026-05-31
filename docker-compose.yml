@@ -1,0 +1,36 @@
+version: "3.9"
+
+# docextract demo — production-ready POC.
+# 2 services orchestrated:
+#   - docextract (Next.js frontend on host port 3020)
+#   - docextract-backend (FastAPI Python, internal only on 8000)
+# Internal network so the frontend can reach the backend by service name.
+
+services:
+  docextract-backend:
+    image: ghcr.io/wikolabs/docextract-backend:latest
+    container_name: docextract-backend
+    restart: unless-stopped
+    environment:
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+    networks:
+      - docextract-net
+
+  docextract:
+    image: ghcr.io/wikolabs/docextract:latest
+    container_name: docextract
+    restart: unless-stopped
+    ports:
+      - "3020:3000"
+    environment:
+      BACKEND_URL: "http://docextract-backend:8000"
+    depends_on:
+      - docextract-backend
+    networks:
+      - docextract-net
+
+networks:
+  docextract-net:
+    name: docextract-net
+    driver: bridge
